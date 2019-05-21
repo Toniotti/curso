@@ -70,6 +70,6 @@ public class Write {
 	public String readFile() {
 		return readFile(this.path);
 	}
-	
+	//comentario de teste
 	
 }
