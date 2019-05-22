@@ -17,5 +17,9 @@ public class Principal {
 		Login l = new Login();
 		l.setLocationRelativeTo(null);
 		l.setVisible(true);
+		
+		/*
+		 testando a mudança de pasta
+		 */
 	}
 }
