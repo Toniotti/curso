@@ -12,7 +12,7 @@ public class Principal {
 		p.setNome("admin");
 		p.setPass("admin");
 		Dados.dadosPessoal.add(p);
-		
+		//testando git
 		Login l = new Login();
 		l.setLocationRelativeTo(null);
 		l.setVisible(true);
