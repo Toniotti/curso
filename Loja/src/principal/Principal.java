@@ -17,6 +17,5 @@ public class Principal {
 		l.setLocationRelativeTo(null);
 		l.setVisible(true);
 		
-		//https://drive.google.com/drive/folders/1evRcDRqIo9sl_eFWzde5cv70Q1FZfsNN
 	}
 }
