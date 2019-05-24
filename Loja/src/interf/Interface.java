@@ -21,7 +21,7 @@ import java.awt.Toolkit;
 public class Interface extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField nomee;
 	private JTable table;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -106,6 +106,8 @@ public class Interface extends JFrame {
 		scrollPane_1.setViewportView(table);
 		
 		JButton btnNewButton = new JButton("") 	;
+		btnNewButton.setBackground(Color.BLACK);
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\i3i\\Desktop\\a\\P\\Loja\\src\\Giphy.gif"));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				    
@@ -214,7 +216,7 @@ public class Interface extends JFrame {
 		comboBox_1.addItem("Inocentes");
 		
 		AdminC.add(comboBox_1);
-		btnNewButton.setBounds(323, 11, 116, 112);
+		btnNewButton.setBounds(310, 30, 116, 136);
 		contentPane.add(btnNewButton);
 		
 		//Ocultar caso usuario nao seja ADMIN
@@ -234,8 +236,7 @@ public class Interface extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				btnCancelar.setEnabled(false);
 				
-				panel.setVisible(false);
-				panel_1.setVisible(false);
+				
 				AdminC.setVisible(false);
 			    btnExcluir.setEnabled(true);
 			    btnNewButton.setEnabled(true);
@@ -254,12 +255,12 @@ public class Interface extends JFrame {
 		});
 		;
 		
-		textField = new JTextField();
-		textField.setBackground(Color.RED);
-		textField.setEditable(false);
-		textField.setBounds(10, 484, 158, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		nomee = new JTextField();
+		nomee.setBackground(Color.RED);
+		nomee.setEditable(false);
+		nomee.setBounds(10, 484, 158, 20);
+		contentPane.add(nomee);
+		nomee.setColumns(10);
 		
 		//Ocultar caso usuario nao seja ADMIN
 		

@@ -75,6 +75,7 @@ public class Login extends JFrame {
 		btnEntrar.setBounds(166, 144, 89, 34);
 		contentPane.add(btnEntrar);
 		
+		txtLogin.requestFocus();
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
