@@ -11,17 +11,7 @@ public class Action {
 	//Separa os dados do "banco de dados" e insere no ArrayList
 	public void cadastrarUsuario(String fileName) {
 		Write w = new Write();
-		System.out.println(w.lineCounter(Path.of("bd.txt")));
-		String str = w.readFile(Path.of(fileName));
-		String[] newStr = str.split(",");
-		
-			//seta as informações do beans
-			Pessoal p = new Pessoal();
-			p.setNome(newStr[0]);
-			p.setPass(newStr[1]);
-			p.setNivel(Integer.parseInt(newStr[2]));
-			
-			Dados.dadosPessoal.add(p);//add ao ArrayList
+		String str = w.readFile(Path.of(fileName), true);
 	}
 	
 	public int validaLogin(String log, String pass) {

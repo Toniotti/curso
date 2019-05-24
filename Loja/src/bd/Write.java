@@ -5,8 +5,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.nio.file.Path;
-
-import action.Action;
+import beans.Pessoal;
+import dados.Dados;
 
 public class Write {
 	
@@ -34,7 +34,6 @@ public class Write {
 	//if the file is created by the "createFile" you don't need to specify a path
 	public void printIn(String msg) {
 		try {
-			System.out.println(this.fileName);
 			createFile(this.fileName, this.append);
 			PrintWriter printer = new PrintWriter(writer);
 			printer.print(msg);
@@ -45,7 +44,7 @@ public class Write {
 	}
 	
 	//read file
-	public String readFile(Path path) {
+	public String readFile(Path path, boolean cad) {
 		String txt="";
 		try {
 			FileReader reader = new FileReader(path.toString());
@@ -54,6 +53,15 @@ public class Write {
 			String ln = "";
 			while((ln = bfr.readLine()) != null) {
 				txt += ln;
+				if(cad == true) {
+					String[] str = ln.split(",");
+					Pessoal p = new Pessoal();
+					p.setNome(str[0]);
+					p.setPass(str[1]);
+					p.setNivel(Integer.parseInt(str[2]));
+					
+					Dados.dadosPessoal.add(p);
+				}
 			}
 		} catch (Exception e) {
 			txt = "Error";

@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 
+import action.Action;
 import bd.Write;
 
 @SuppressWarnings("serial")
@@ -73,8 +74,10 @@ public class Registro extends JFrame {
 				String log = CLogin.getText();
 				String pass = txtSenha.getText();
 				
+				Action a = new Action();
 				Write w = new Write();
 				w.printIn(log+","+pass+","+"0,"+System.lineSeparator());
+				a.cadastrarUsuario("bd.txt");
 				
 				dispose();//fecha o painel de cadastro
 			}
