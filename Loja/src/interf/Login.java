@@ -6,6 +6,7 @@ import javax.swing.border.EmptyBorder;
 
 import action.Action;
 import beans.Pessoal;
+import principal.Principal;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,8 +26,9 @@ public class Login extends JFrame {
 	private JTextField txtPass;
    
 	public Login() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Tela de Login");
-		setBounds(100, 100, 297, 206);
+		setBounds(100, 100, 288, 228);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -46,11 +48,16 @@ public class Login extends JFrame {
 		contentPane.add(lblSenha);
 		
 		txtLogin = new JTextField();
+		txtLogin.setForeground(Color.RED);
+		txtLogin.setBackground(Color.BLACK);
 		txtLogin.setBounds(79, 76, 176, 24);
 		contentPane.add(txtLogin);
 		txtLogin.setColumns(10);
 		
+		
 		txtPass = new JTextField();
+		txtPass.setForeground(Color.RED);
+		txtPass.setBackground(Color.BLACK);
 		txtPass.setColumns(10);
 		txtPass.setBounds(79, 110, 176, 24);
 		contentPane.add(txtPass);
@@ -58,15 +65,28 @@ public class Login extends JFrame {
 		JLabel lblA = new JLabel("SEDEathX");
 		lblA.setForeground(Color.RED);
 		lblA.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblA.setBounds(20, 11, 176, 54);
+		lblA.setBounds(20, 11, 176, 62);
 		contentPane.add(lblA);
 		
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.setBackground(Color.BLACK);
 		btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnEntrar.setForeground(Color.RED);
-		btnEntrar.setBounds(182, 11, 89, 45);
+		btnEntrar.setBounds(166, 144, 89, 34);
 		contentPane.add(btnEntrar);
+		
+		JButton btnRegistrar = new JButton("Registrar");
+		btnRegistrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			Registro r = new Registro();
+			r.setVisible(true);
+			}
+		});
+		btnRegistrar.setForeground(Color.RED);
+		btnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnRegistrar.setBackground(Color.BLACK);
+		btnRegistrar.setBounds(10, 155, 99, 23);
+		contentPane.add(btnRegistrar);
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if ((txtLogin.getText().equals("") || (txtPass.getText().equals("")))){

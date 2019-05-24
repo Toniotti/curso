@@ -3,8 +3,10 @@ package principal;
 import beans.Pessoal;
 import dados.Dados;
 import interf.Login;
+import interf.Registro;
 
 public class Principal {
+	 
 	public static void main(String[] args) {
 		Pessoal p = new Pessoal();//instancia a classe "Pessoal"
 		
@@ -13,9 +15,13 @@ public class Principal {
 		p.setPass("admin");
 		Dados.dadosPessoal.add(p);
 		
+		
 		Login l = new Login();
 		l.setLocationRelativeTo(null);
 		l.setVisible(true);
+	    
 		
+		
+		}
 	}
-}
+
