@@ -4,7 +4,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -16,7 +15,6 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.border.LineBorder;
-import java.awt.Toolkit;
 
 @SuppressWarnings("serial")
 public class Interface extends JFrame {

@@ -1,26 +1,24 @@
 package interf;
-
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.nio.file.Path;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 
+import bd.Write;
+
+@SuppressWarnings("serial")
 public class Registro extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField CLogin;
-	private JTextField textField_1;
+	private JTextField txtSenha;
 
 	
 	public Registro() {
@@ -58,22 +56,27 @@ public class Registro extends JFrame {
 		contentPane.add(CLogin);
 		CLogin.setColumns(10);
 		CLogin.requestFocus();
-		textField_1 = new JTextField();
-		textField_1.setForeground(Color.RED);
-		textField_1.setBackground(Color.BLACK);
-		textField_1.setColumns(10);
-		textField_1.setBounds(70, 92, 138, 24);
-		contentPane.add(textField_1);
+		txtSenha = new JTextField();
+		txtSenha.setForeground(Color.RED);
+		txtSenha.setBackground(Color.BLACK);
+		txtSenha.setColumns(10);
+		txtSenha.setBounds(70, 92, 138, 24);
+		contentPane.add(txtSenha);
 		
 		JButton btnR = new JButton("Registrar");
 		btnR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Registro r = new Registro();
+				@SuppressWarnings("unused")
+				Registro r = new Registro();//mostra o painel de cadsatro
 				
+				//pega dados
+				String log = CLogin.getText();
+				String pass = txtSenha.getText();
 				
+				Write w = new Write();
+				w.printIn(log+","+pass+","+"0,"+System.lineSeparator());
 				
-				
-	       dispose();
+				dispose();//fecha o painel de cadastro
 			}
 		});
 		btnR.setBackground(Color.BLACK);

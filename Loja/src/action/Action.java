@@ -2,17 +2,16 @@ package action;
 
 import dados.Dados;
 import interf.Interface;
-import interf.Login;
-
 import java.nio.file.Path;
-
 import bd.Write;
 import beans.Pessoal;
 
 public class Action {
+	
 	//Separa os dados do "banco de dados" e insere no ArrayList
 	public void cadastrarUsuario(String fileName) {
 		Write w = new Write();
+		System.out.println(w.lineCounter(Path.of("bd.txt")));
 		String str = w.readFile(Path.of(fileName));
 		String[] newStr = str.split(",");
 		
@@ -30,9 +29,8 @@ public class Action {
 			for (int i = 0; i < Dados.dadosPessoal.size(); i++) {
 				if((log.equals(Dados.dadosPessoal.get(i).getNome()))) {
 					if(pass.equals(Dados.dadosPessoal.get(i).getPass())) {
-						Interface in = new Interface();
-						in.nome = log;
-						in.nivel = Dados.dadosPessoal.get(i).getNivel();
+						Interface.nome = log;
+						Interface.nivel = Dados.dadosPessoal.get(i).getNivel();
 						valid = 1;
 						break;	
 					}else {

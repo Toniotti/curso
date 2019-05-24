@@ -6,13 +6,16 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.nio.file.Path;
 
+import action.Action;
+
 public class Write {
 	
-	String fileName;
-	boolean append;
+	public static String fileName;
+	public static boolean append;
 	
 	Path path;
 	FileWriter writer;
+
 	
 	//create the file
 	public void createFile(String fileName, boolean append) {
@@ -29,8 +32,9 @@ public class Write {
 	
 	//insert text in file
 	//if the file is created by the "createFile" you don't need to specify a path
-	public void printIn(String msg, Path path) {
+	public void printIn(String msg) {
 		try {
+			System.out.println(this.fileName);
 			createFile(this.fileName, this.append);
 			PrintWriter printer = new PrintWriter(writer);
 			printer.print(msg);
@@ -40,21 +44,12 @@ public class Write {
 		}
 	}
 	
-	public void printIn(String msg) {
-		try {
-			printIn(msg, this.path);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-	
 	//read file
-	//if the file is created by the "createFile" you don't need to specify a path
-	
 	public String readFile(Path path) {
 		String txt="";
 		try {
 			FileReader reader = new FileReader(path.toString());
+			@SuppressWarnings("resource")
 			BufferedReader bfr = new BufferedReader(reader);
 			String ln = "";
 			while((ln = bfr.readLine()) != null) {
@@ -67,8 +62,21 @@ public class Write {
 		return txt;
 	}
 	
-	public String readFile() {
-		return readFile(this.path);
+	public static int lineCounter(Path path) {
+		int line = 0;
+		try {
+		FileReader reader = new FileReader(path.toString());
+		@SuppressWarnings("resource")
+		BufferedReader bfr = new BufferedReader(reader);
+		String ln = "";
+		while((ln = bfr.readLine()) != null) {
+			line++;
+		}
+		}catch(Exception e){
+			
+		}
+		
+		return line;
 	}
 	
 }

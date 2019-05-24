@@ -3,8 +3,6 @@ import java.io.File;
 
 import action.Action;
 import bd.Write;
-import beans.Pessoal;
-import dados.Dados;
 import interf.Login;
 
 public class Principal {
@@ -12,13 +10,14 @@ public class Principal {
 		//criando o primeiro usuario e colocando no banco de dados
 		File f = new File("bd.txt");
 		if(!(f.exists())) {
-			Pessoal p = new Pessoal();//instancia a classe "Pessoal"
 			Write w = new Write();//instancia a classe write
 			
 			//cria o banco e escreve o primeiro usuario
 			w.createFile("bd", true);
-			w.printIn("admin,admin,1");
+			w.printIn("admin,admin,1,"+System.lineSeparator());
 		}
+		Write.fileName = "bd";
+		Write.append = true;
 		
 		//le o banco separa as informações e add no ArrayList
 		Action a = new Action();
