@@ -4,7 +4,7 @@ public class Pessoal {
 	//variables
 	private String local;
 	private int idade;
-	private String name, pass;
+	private static String name, pass;
 	
 	
 	//set and get
