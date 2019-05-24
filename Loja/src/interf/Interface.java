@@ -33,7 +33,6 @@ public class Interface extends JFrame {
 		setFont(new Font("Dialog", Font.BOLD, 17));
 		setForeground(Color.RED);
 		setTitle("PROGRAMINHA MATADOR VINDO DIRETO DA DEEPWEB");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\i3i\\Desktop\\Java\\P.png"));
 		
 		JButton btnNewButton_1 = new JButton("Cadastrar");
 		btnNewButton_1.setBackground(Color.RED);
@@ -107,7 +106,7 @@ public class Interface extends JFrame {
 		
 		JButton btnNewButton = new JButton("") 	;
 		btnNewButton.setBackground(Color.BLACK);
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\i3i\\Desktop\\a\\P\\Loja\\src\\Giphy.gif"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\i3i\\Desktop\\Java\\Loja\\src\\interf\\newx.gif"));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				    

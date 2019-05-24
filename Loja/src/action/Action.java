@@ -1,21 +1,41 @@
 package action;
 
 import dados.Dados;
+
+import java.nio.file.Path;
+
+import bd.Write;
 import beans.Pessoal;
 
 public class Action {
-	public boolean validate() {
-		boolean valid = false;
-		Pessoal p = new Pessoal();
-		String log = p.getNome();
-		String pass = p.getPass();
+	//Separa os dados do "banco de dados" e insere no ArrayList
+	public void cadastrarUsuario(String fileName) {
+		Write w = new Write();
+		String str = w.readFile(Path.of(fileName));
+		String[] newStr = str.split(",");
+		
+			//seta as informações do beans
+			Pessoal p = new Pessoal();
+			p.setNome(newStr[0]);
+			p.setPass(newStr[1]);
+			p.setNivel(Integer.parseInt(newStr[2]));
+			
+			Dados.dadosPessoal.add(p);//add ao ArrayList
+	}
+	
+	public int validaLogin(String log, String pass) {
+		int valid = 3;
 			for (int i = 0; i < Dados.dadosPessoal.size(); i++) {
-				if((log.equals(Dados.dadosPessoal.get(i).getNome())) && (log.equals(Dados.dadosPessoal.get(i).getPass()))) {
-					valid = true;
-					break;
+				if((log.equals(Dados.dadosPessoal.get(i).getNome()))) {
+					if(pass.equals(Dados.dadosPessoal.get(i).getPass())) {
+						valid = 1;
+						break;	
+					}else {
+						valid = 2;
+						break;
+					}
 				}
 			}
-		System.out.println(valid);
 		return valid;
 	}
 }

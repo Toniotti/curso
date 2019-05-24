@@ -93,20 +93,22 @@ public class Login extends JFrame {
 				if ((txtLogin.getText().equals("") || (txtPass.getText().equals("")))){
 					JOptionPane.showMessageDialog(null, "Informe TODOS OS DADOS");
 				}else {
-					Pessoal p = new Pessoal();
-					p.setNome(txtLogin.getText());
-					p.setPass(txtPass.getText());
 					Action a = new Action();
-					if(a.validate() == true) {	
+					if(a.validaLogin(txtLogin.getText(), txtPass.getText()) == 1) {	
 						Login.super.setVisible(false);
 						
 						Interface i = new Interface();
 						i.setLocationRelativeTo(null);
 						i.setVisible(true);
+					}else if(a.validaLogin(txtLogin.getText(), txtPass.getText()) == 2){
+						JOptionPane.showMessageDialog(null, "Senha incorreta.");
+					}else if(a.validaLogin(txtLogin.getText(), txtPass.getText()) == 3) {
+						JOptionPane.showMessageDialog(null, "Usuario não encontrado.");
 					}
 				}
 			}
 		});
+
 	 
 	}
 }

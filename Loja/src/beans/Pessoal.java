@@ -3,7 +3,7 @@ package beans;
 public class Pessoal {
 	//variables
 	private String local;
-	private int idade;
+	private int idade, nivel;
 	private static String name, pass;
 	
 	
@@ -32,5 +32,11 @@ public class Pessoal {
 	}
 	public void setIdade(int idade) {
 		this.idade = idade;
+	}
+	public int getNivel() {
+		return nivel;
+	}
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
 	}
 }
