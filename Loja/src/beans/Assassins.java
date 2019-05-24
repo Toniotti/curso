@@ -6,9 +6,6 @@ public class Assassins extends Pessoal{
 private String ExceA, EstiloA;
 private int DistanciaA;
 private Double CustoA;
-//teste1
-//teste2
-
 
 //set and get
 public String getExceA() {
