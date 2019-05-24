@@ -1,6 +1,8 @@
 package action;
 
 import dados.Dados;
+import interf.Interface;
+import interf.Login;
 
 import java.nio.file.Path;
 
@@ -28,6 +30,9 @@ public class Action {
 			for (int i = 0; i < Dados.dadosPessoal.size(); i++) {
 				if((log.equals(Dados.dadosPessoal.get(i).getNome()))) {
 					if(pass.equals(Dados.dadosPessoal.get(i).getPass())) {
+						Interface in = new Interface();
+						in.nome = log;
+						in.nivel = Dados.dadosPessoal.get(i).getNivel();
 						valid = 1;
 						break;	
 					}else {
@@ -37,5 +42,9 @@ public class Action {
 				}
 			}
 		return valid;
+	}
+	
+	public void addCarrinho() {
+		
 	}
 }

@@ -3,14 +3,9 @@ package interf;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import action.Action;
-import beans.Pessoal;
-import principal.Principal;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.Color;
@@ -24,8 +19,9 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtLogin;
 	private JTextField txtPass;
-   
+	
 	public Login() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Tela de Login");
 		setBounds(100, 100, 288, 228);
@@ -83,13 +79,17 @@ public class Login extends JFrame {
 			r.setVisible(true);
 			}
 		});
+		
 		btnRegistrar.setForeground(Color.RED);
 		btnRegistrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnRegistrar.setBackground(Color.BLACK);
 		btnRegistrar.setBounds(10, 155, 99, 23);
 		contentPane.add(btnRegistrar);
+		getRootPane().setDefaultButton(btnEntrar);
+		
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				if ((txtLogin.getText().equals("") || (txtPass.getText().equals("")))){
 					JOptionPane.showMessageDialog(null, "Informe TODOS OS DADOS");
 				}else {

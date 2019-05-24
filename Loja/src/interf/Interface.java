@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -28,8 +29,12 @@ public class Interface extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 
+	public static String nome;
+	public static int nivel;
+	
 	
 	public Interface() {
+		
 		setFont(new Font("Dialog", Font.BOLD, 17));
 		setForeground(Color.RED);
 		setTitle("PROGRAMINHA MATADOR VINDO DIRETO DA DEEPWEB");
