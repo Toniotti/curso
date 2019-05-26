@@ -18,6 +18,7 @@ public class Write {
 
 	
 	//create the file
+	@SuppressWarnings("static-access")
 	public void createFile(String fileName, boolean append) {
 		try {
 			this.fileName = fileName;
@@ -32,6 +33,7 @@ public class Write {
 	
 	//insert text in file
 	//if the file is created by the "createFile" you don't need to specify a path
+	@SuppressWarnings("static-access")
 	public void printIn(String msg) {
 		try {
 			createFile(this.fileName, this.append);
@@ -44,15 +46,13 @@ public class Write {
 	}
 	
 	//read file
-	public String readFile(Path path, boolean cad) {
-		String txt="";
+	public void readFile(Path path, boolean cad) {
 		try {
 			FileReader reader = new FileReader(path.toString());
 			@SuppressWarnings("resource")
 			BufferedReader bfr = new BufferedReader(reader);
 			String ln = "";
 			while((ln = bfr.readLine()) != null) {
-				txt += ln;
 				if(cad == true) {
 					String[] str = ln.split(",");
 					Pessoal p = new Pessoal();
@@ -64,12 +64,10 @@ public class Write {
 				}
 			}
 		} catch (Exception e) {
-			txt = "Error";
 		}
-		
-		return txt;
 	}
 	
+	@SuppressWarnings("unused")
 	public static int lineCounter(Path path) {
 		int line = 0;
 		try {

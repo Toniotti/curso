@@ -77,7 +77,7 @@ public class Registro extends JFrame {
 				Action a = new Action();
 				Write w = new Write();
 				w.printIn(log+","+pass+","+"0,"+System.lineSeparator());
-				a.cadastrarUsuario("bd.txt");
+				w.readFile(Path.of("bd.txt"), true);
 				
 				dispose();//fecha o painel de cadastro
 			}

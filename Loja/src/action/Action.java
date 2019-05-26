@@ -4,16 +4,8 @@ import dados.Dados;
 import interf.Interface;
 import java.nio.file.Path;
 import bd.Write;
-import beans.Pessoal;
 
 public class Action {
-	
-	//Separa os dados do "banco de dados" e insere no ArrayList
-	public void cadastrarUsuario(String fileName) {
-		Write w = new Write();
-		String str = w.readFile(Path.of(fileName), true);
-	}
-	
 	public int validaLogin(String log, String pass) {
 		int valid = 3;
 			for (int i = 0; i < Dados.dadosPessoal.size(); i++) {

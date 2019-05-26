@@ -4,7 +4,7 @@ public class Pessoal {
 	//variables
 	private String local;
 	private int idade, nivel;
-	private static String name, pass;
+	private String name, pass;
 	
 	
 	//set and get
@@ -12,12 +12,14 @@ public class Pessoal {
 	public String getNome() {
 		return name;		
 	}
+	@SuppressWarnings("static-access")
 	public void setNome(String name) {
 		this.name = name;
 	}
 	public String getPass() {
 		return pass;
 	}
+	@SuppressWarnings("static-access")
 	public void setPass(String pass) {
 		this.pass = pass;
 	}

@@ -1,5 +1,6 @@
 package principal;
 import java.io.File;
+import java.nio.file.Path;
 
 import action.Action;
 import bd.Write;
@@ -9,7 +10,7 @@ public class Principal {
 	public static void main(String[] args) {
 		//criando o primeiro usuario e colocando no banco de dados
 		File f = new File("bd.txt");
-		if(!(f.exists())) {
+		if(!f.exists()) {
 			Write w = new Write();//instancia a classe write
 			
 			//cria o banco e escreve o primeiro usuario
@@ -20,8 +21,8 @@ public class Principal {
 		Write.append = true;
 		
 		//le o banco separa as informações e add no ArrayList
-		Action a = new Action();
-		a.cadastrarUsuario("bd.txt");
+		Write w = new Write();
+		w.readFile(Path.of("bd.txt"), true);
 		
 		Login l = new Login();
 		l.setLocationRelativeTo(null);
