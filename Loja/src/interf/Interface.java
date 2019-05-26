@@ -16,19 +16,23 @@ import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.border.LineBorder;
 
+import bd.Write;
+import dados.Dados;
+
 @SuppressWarnings("serial")
 public class Interface extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField nomee;
 	private JTable table;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField txtNome;
+	private JTextField txtIdade;
+	private JTextField txtLocal;
+	private JTextField txtCusto;
 
 	public static String nome;
 	public static int nivel;
+	private JTable table_1;
 	
 	
 	public Interface() {
@@ -91,6 +95,9 @@ public class Interface extends JFrame {
 		scrollPane_2.setBounds(10, 24, 235, 302);
 		panel.add(scrollPane_2);
 		
+		table_1 = new JTable();
+		scrollPane_2.setViewportView(table_1);
+		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(449, 11, 255, 337);
 		contentPane.add(panel_1);
@@ -140,65 +147,65 @@ public class Interface extends JFrame {
 		lblNome.setBounds(20, 36, 42, 14);
 		AdminC.add(lblNome);
 		
-		textField_1 = new JTextField();
-		textField_1.setForeground(Color.RED);
-		textField_1.setBackground(Color.BLACK);
-		textField_1.setBounds(61, 34, 96, 20);
-		AdminC.add(textField_1);
-		textField_1.setColumns(10);
+		txtNome = new JTextField();
+		txtNome.setForeground(Color.RED);
+		txtNome.setBackground(Color.BLACK);
+		txtNome.setBounds(61, 34, 96, 20);
+		AdminC.add(txtNome);
+		txtNome.setColumns(10);
 		
 		JLabel lblIdade = new JLabel("Idade");
 		lblIdade.setForeground(Color.RED);
 		lblIdade.setBounds(167, 36, 42, 14);
 		AdminC.add(lblIdade);
 		
-		textField_2 = new JTextField();
-		textField_2.setForeground(Color.RED);
-		textField_2.setBackground(Color.BLACK);
-		textField_2.setColumns(10);
-		textField_2.setBounds(201, 33, 48, 20);
-		AdminC.add(textField_2);
+		txtIdade = new JTextField();
+		txtIdade.setForeground(Color.RED);
+		txtIdade.setBackground(Color.BLACK);
+		txtIdade.setColumns(10);
+		txtIdade.setBounds(201, 33, 48, 20);
+		AdminC.add(txtIdade);
 		
 		JLabel lblLocalDeAo = new JLabel("Local de a\u00E7\u00E3o");
 		lblLocalDeAo.setForeground(Color.RED);
 		lblLocalDeAo.setBounds(20, 64, 96, 14);
 		AdminC.add(lblLocalDeAo);
 		
-		textField_3 = new JTextField();
-		textField_3.setForeground(Color.RED);
-		textField_3.setBackground(Color.BLACK);
-		textField_3.setColumns(10);
-		textField_3.setBounds(106, 61, 143, 20);
-		AdminC.add(textField_3);
+		txtLocal = new JTextField();
+		txtLocal.setForeground(Color.RED);
+		txtLocal.setBackground(Color.BLACK);
+		txtLocal.setColumns(10);
+		txtLocal.setBounds(106, 61, 143, 20);
+		AdminC.add(txtLocal);
 		
 		JLabel lblNewLabel_1 = new JLabel("Estilo de Assassinato");
 		lblNewLabel_1.setForeground(Color.RED);
 		lblNewLabel_1.setBounds(20, 89, 137, 14);
 		AdminC.add(lblNewLabel_1);
 		
-		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.setBackground(Color.BLACK);
-		comboBox.setForeground(Color.RED);
-		comboBox.setBounds(146, 85, 103, 22);
-		comboBox.addItem("*Desconhecido*");
-		comboBox.addItem("Armas de Fogo");
-		comboBox.addItem("Veneno");
-		comboBox.addItem("Armas Brancas");
-		comboBox.addItem("Atropelamento");
-		comboBox.addItem("Explosivos");
-		AdminC.add(comboBox);
+		JComboBox<String> cmbEstlo = new JComboBox<String>();
+		cmbEstlo.setBackground(Color.BLACK);
+		cmbEstlo.setForeground(Color.RED);
+		cmbEstlo.setBounds(146, 85, 103, 22);
+		cmbEstlo.addItem("*Desconhecido*");
+		cmbEstlo.addItem("Armas de Fogo");
+		cmbEstlo.addItem("Veneno");
+		cmbEstlo.addItem("Armas Brancas");
+		cmbEstlo.addItem("Atropelamento");
+		cmbEstlo.addItem("Explosivos");
+		AdminC.add(cmbEstlo);
 		
 		JLabel lblCustoBase = new JLabel("Custo Base");
 		lblCustoBase.setForeground(Color.RED);
 		lblCustoBase.setBounds(20, 117, 70, 14);
 		AdminC.add(lblCustoBase);
 		
-		textField_4 = new JTextField();
-		textField_4.setForeground(Color.RED);
-		textField_4.setBackground(Color.BLACK);
-		textField_4.setColumns(10);
-		textField_4.setBounds(93, 114, 76, 20);
-		AdminC.add(textField_4);
+		txtCusto = new JTextField();
+		txtCusto.setForeground(Color.RED);
+		txtCusto.setBackground(Color.BLACK);
+		txtCusto.setColumns(10);
+		txtCusto.setBounds(93, 114, 76, 20);
+		AdminC.add(txtCusto);
 		
 		
 		
@@ -208,21 +215,27 @@ public class Interface extends JFrame {
 		AdminC.add(lblNewLabel_2);
 		;
 		
-		JComboBox<String> comboBox_1 = new JComboBox<String>();
-		comboBox_1.setBackground(Color.BLACK);
-		comboBox_1.setForeground(Color.RED);
-		comboBox_1.setBounds(81, 138, 113, 22);
-		comboBox_1.addItem("Crianças, Idosos...");
-		comboBox_1.addItem("Politicos");
-		comboBox_1.addItem("Artistas");
-		comboBox_1.addItem("Inocentes");
+		JComboBox<String> cmbEx = new JComboBox<String>();
+		cmbEx.setBackground(Color.BLACK);
+		cmbEx.setForeground(Color.RED);
+		cmbEx.setBounds(81, 138, 113, 22);
+		cmbEx.addItem("Crianças, Idosos...");
+		cmbEx.addItem("Politicos");
+		cmbEx.addItem("Artistas");
+		cmbEx.addItem("Inocentes");
 		
-		AdminC.add(comboBox_1);
+		AdminC.add(cmbEx);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String str = txtNome.getText()+";"+txtCusto.getText()+";"+cmbEx.getItemAt(cmbEx.getSelectedIndex())+";"
+				+cmbEstlo.getItemAt(cmbEstlo.getSelectedIndex())+";"+txtIdade.getText()+";"+txtLocal.getText()+";"+System.lineSeparator();
 				
+				Write w = new Write();
+				w.createFile("assassinos", true);
+				w.printIn(str);
+				w.lerUsuario("assassinos.txt", 2);
 			}
 		});
 		btnCadastrar.setForeground(Color.RED);

@@ -5,7 +5,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.nio.file.Path;
-import beans.Pessoal;
+
+import beans.*;
 import dados.Dados;
 
 public class Write {
@@ -46,14 +47,14 @@ public class Write {
 	}
 	
 	//read file
-	public void lerUsuario(Path path, boolean cad) {
+	public void lerUsuario(String path, int type) {
 		try {
-			FileReader reader = new FileReader(path.toString());
+			FileReader reader = new FileReader(path);
 			@SuppressWarnings("resource")
 			BufferedReader bfr = new BufferedReader(reader);
 			String ln = "";
 			while((ln = bfr.readLine()) != null) {
-				if(cad == true) {
+				if(type == 1) {
 					String[] str = ln.split(",");
 					Pessoal p = new Pessoal();
 					p.setNome(str[0]);
@@ -61,6 +62,17 @@ public class Write {
 					p.setNivel(Integer.parseInt(str[2]));
 					
 					Dados.dadosPessoal.add(p);
+				}else if(type == 2) {
+					String[] str = ln.split(";");
+					Assassins a = new Assassins();
+					a.setNome(str[0]);
+					a.setCustoA(Double.parseDouble(str[1]));
+					a.setExceA(str[2]);
+					a.setEstiloA(str[3]);
+					a.setIdade(Integer.parseInt(str[4]));
+					a.setLocal(str[5]);
+					
+					Dados.dadosAssassin.add(a);
 				}
 			}
 		} catch (Exception e) {

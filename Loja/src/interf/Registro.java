@@ -7,11 +7,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.nio.file.Path;
 import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
-
-import action.Action;
 import bd.Write;
 
 @SuppressWarnings("serial")
@@ -73,11 +70,9 @@ public class Registro extends JFrame {
 				//pega dados
 				String log = CLogin.getText();
 				String pass = txtSenha.getText();
-				
-				Action a = new Action();
 				Write w = new Write();
 				w.printIn(log+","+pass+","+"0,"+System.lineSeparator());
-				w.lerUsuario(Path.of("bd.txt"), true);
+				w.lerUsuario("bd.txt", 1);
 				
 				dispose();//fecha o painel de cadastro
 			}

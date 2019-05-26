@@ -4,7 +4,6 @@ public class Assassins extends Pessoal{
 //variables
 //name, local, exception, style(of killing)
 private String ExceA, EstiloA;
-private int DistanciaA;
 private Double CustoA;
 
 //set and get
@@ -25,12 +24,5 @@ public Double getCustoA() {
 }
 public void setCustoA(Double custoA) {
 	CustoA = custoA;
-}
-
-public int getDistanciaA() {
-	return DistanciaA;
-}
-public void setDistanciaA(int distanciaA) {
-	DistanciaA = distanciaA;
 }
 }

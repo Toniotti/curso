@@ -4,11 +4,6 @@ import dados.Dados;
 import interf.Interface;
 
 public class Action {
-	public void cadAss() {
-		
-	}
-	
-	
 	public int validaLogin(String log, String pass) {
 		int valid = 3;
 			for (int i = 0; i < Dados.dadosPessoal.size(); i++) {
