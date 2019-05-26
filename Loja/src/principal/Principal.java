@@ -1,8 +1,6 @@
 package principal;
 import java.io.File;
 import java.nio.file.Path;
-
-import action.Action;
 import bd.Write;
 import interf.Login;
 
@@ -22,7 +20,7 @@ public class Principal {
 		
 		//le o banco separa as informações e add no ArrayList
 		Write w = new Write();
-		w.readFile(Path.of("bd.txt"), true);
+		w.lerUsuario(Path.of("bd.txt"), true);
 		
 		Login l = new Login();
 		l.setLocationRelativeTo(null);

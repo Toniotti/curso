@@ -2,10 +2,13 @@ package action;
 
 import dados.Dados;
 import interf.Interface;
-import java.nio.file.Path;
-import bd.Write;
 
 public class Action {
+	public void cadAss() {
+		
+	}
+	
+	
 	public int validaLogin(String log, String pass) {
 		int valid = 3;
 			for (int i = 0; i < Dados.dadosPessoal.size(); i++) {
@@ -22,9 +25,5 @@ public class Action {
 				}
 			}
 		return valid;
-	}
-	
-	public void addCarrinho() {
-		
 	}
 }

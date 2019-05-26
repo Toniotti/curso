@@ -46,7 +46,7 @@ public class Write {
 	}
 	
 	//read file
-	public void readFile(Path path, boolean cad) {
+	public void lerUsuario(Path path, boolean cad) {
 		try {
 			FileReader reader = new FileReader(path.toString());
 			@SuppressWarnings("resource")

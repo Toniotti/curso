@@ -124,7 +124,7 @@ public class Interface extends JFrame {
 		AdminC.setBorder(new LineBorder(Color.RED));
 		AdminC.setForeground(Color.DARK_GRAY);
 		AdminC.setBackground(Color.BLACK);
-		AdminC.setBounds(10, 42, 290, 173);
+		AdminC.setBounds(10, 42, 290, 227);
 		contentPane.add(AdminC);
 		AdminC.setLayout(null);
 		AdminC.setVisible(false);
@@ -218,6 +218,16 @@ public class Interface extends JFrame {
 		comboBox_1.addItem("Inocentes");
 		
 		AdminC.add(comboBox_1);
+		
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnCadastrar.setForeground(Color.RED);
+		btnCadastrar.setBounds(93, 193, 89, 23);
+		AdminC.add(btnCadastrar);
 		btnNewButton.setBounds(310, 30, 116, 136);
 		contentPane.add(btnNewButton);
 		
