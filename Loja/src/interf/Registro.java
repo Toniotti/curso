@@ -72,7 +72,7 @@ public class Registro extends JFrame {
 				String pass = txtSenha.getText();
 				Write w = new Write();
 				w.printIn(log+","+pass+","+"0,"+System.lineSeparator());
-				w.lerUsuario("bd.txt", 1);
+				w.lerUsuario("bd.txt");
 				
 				dispose();//fecha o painel de cadastro
 			}

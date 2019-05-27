@@ -235,7 +235,7 @@ public class Interface extends JFrame {
 				Write w = new Write();
 				w.createFile("assassinos", true);
 				w.printIn(str);
-				w.lerUsuario("assassinos.txt", 2);
+				w.lerAssassino("assassinos.txt");
 			}
 		});
 		btnCadastrar.setForeground(Color.RED);
