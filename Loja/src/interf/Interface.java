@@ -15,7 +15,6 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
 
 import action.Action;
 import bd.Write;
@@ -219,7 +218,6 @@ public class Interface extends JFrame {
 				w.createFile("assassinos", true);
 				w.printIn(str);
 				w.lerAssassino("assassinos.txt");
-				
 				Table1.setModel(a.selecionar());
 				}
 		});
@@ -287,6 +285,11 @@ public class Interface extends JFrame {
 		contentPane.add(btnExcluir);
 		
 		JButton btnCarrinho = new JButton("PEDIDOS");
+		btnCarrinho.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Table1.setVisible(false);
+			}
+		});
 		btnCarrinho.setBackground(Color.RED);
 		btnCarrinho.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnCarrinho.setBounds(672, 359, 127, 23);
