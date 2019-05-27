@@ -1,11 +1,11 @@
 package interf;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import action.Action;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
@@ -15,6 +15,7 @@ public class Carrinho extends JFrame {
 	private JTable tbl2;
 
 	public Carrinho() {
+		
 		setTitle("Carrinho");
 		setBounds(100, 100, 450, 442);
 		contentPane = new JPanel();
@@ -28,5 +29,7 @@ public class Carrinho extends JFrame {
 		
 		tbl2 = new JTable();
 		scrollPane.setViewportView(tbl2);
+		Action a = new Action();
+		tbl2.setModel(a.Carrinho());
 	}
 }

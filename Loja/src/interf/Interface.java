@@ -4,9 +4,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
@@ -18,6 +21,7 @@ import javax.swing.border.LineBorder;
 
 import action.Action;
 import bd.Write;
+import beans.Assassins;
 import dados.Dados;
 
 @SuppressWarnings("serial")
@@ -34,6 +38,7 @@ public class Interface extends JFrame {
 	public static int nivel;
 	private JTable Table1;
 	
+	static int row;
 	
 	public Interface() {
 		
@@ -100,7 +105,19 @@ public class Interface extends JFrame {
 		CadastrarA.setIcon(new ImageIcon("C:\\Users\\i3i\\Desktop\\Java\\Loja\\src\\interf\\newx.gif"));
 		CadastrarA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				    
+				
+				String nome = Dados.dadosAssassin.get(row).getNome();
+				double valor = Dados.dadosAssassin.get(row).getCustoA();
+				
+				Assassins a = new Assassins();
+				a.setNome(nome);
+				a.setCustoA(valor);
+				
+				
+				Action ac = new Action();
+				ac.addCarrinho(a);
+				
+				JOptionPane.showMessageDialog(null, "Compra efetuada com sucesso. =)");
 				    btnExcluir.setEnabled(true);
 				    CadastrarA.setEnabled(true);
 				    btnCadastro.setEnabled(true);
@@ -287,7 +304,8 @@ public class Interface extends JFrame {
 		JButton btnCarrinho = new JButton("PEDIDOS");
 		btnCarrinho.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Table1.setVisible(false);
+				Carrinho c = new Carrinho();
+				c.setVisible(true);
 			}
 		});
 		btnCarrinho.setBackground(Color.RED);
@@ -306,6 +324,39 @@ public class Interface extends JFrame {
 		}
 		
 		
+		Table1.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				row = Table1.getSelectedRow();
+				
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		Table1.setModel(a.selecionar());
 	}  

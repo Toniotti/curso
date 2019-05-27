@@ -2,6 +2,8 @@ package action;
 
 import javax.swing.table.DefaultTableModel;
 import dados.Dados;
+import beans.Assassins;
+import beans.Carrinho;
 import interf.Interface;
 
 public class Action {
@@ -23,6 +25,29 @@ public class Action {
 		return valid;
 	}
 
+	
+	public void addCarrinho(Assassins a) {
+		Dados.dadosCarrinho.add(a);
+	}
+	
+	public DefaultTableModel Carrinho() {
+		DefaultTableModel modelo = new DefaultTableModel();
+		modelo.addColumn("Nome");
+		modelo.addColumn("Custo");
+
+		
+		for (int i = 0; i < Dados.dadosCarrinho.size(); i++) {
+			modelo.addRow(new Object[] {
+					Dados.dadosCarrinho.get(i).getNome(),
+					Dados.dadosCarrinho.get(i).getCustoA(),
+			});
+		}
+		
+		return modelo;
+		
+	}
+	
+	
 public DefaultTableModel selecionar() {
 		DefaultTableModel modelo = new DefaultTableModel();
 		modelo.addColumn("Nome");
