@@ -3,7 +3,6 @@ package dados;
 import java.util.ArrayList;
 import java.util.List;
 import beans.Assassins;
-import beans.Carrinho;
 import beans.Pessoal;
 
 public class Dados {

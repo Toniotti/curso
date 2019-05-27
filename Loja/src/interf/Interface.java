@@ -49,7 +49,7 @@ public class Interface extends JFrame {
 		
 		JButton btnCadastro = new JButton("Cadastrar");
 		btnCadastro.setBackground(Color.RED);
-		btnCadastro.setBounds(622, 483, 82, 23);
+		btnCadastro.setBounds(622, 483, 103, 23);
 	
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -303,7 +303,7 @@ public class Interface extends JFrame {
 		contentPane.add(btnCancelar);
 		contentPane.add(btnExcluir);
 		
-		JButton btnCarrinho = new JButton("PEDIDOS");
+		JButton btnCarrinho = new JButton("CARRINHO");
 		btnCarrinho.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Carrinho c = new Carrinho();
@@ -361,5 +361,15 @@ public class Interface extends JFrame {
 		});
 		
 		Table1.setModel(a.selecionar());
+		
+		JLabel lblCliqueAcimaPara = new JLabel("Clique acima para");
+		lblCliqueAcimaPara.setForeground(Color.RED);
+		lblCliqueAcimaPara.setBounds(310, 177, 129, 14);
+		contentPane.add(lblCliqueAcimaPara);
+		
+		JLabel lblAdicionarAoCarrinho = new JLabel("adicionar ao carrinho");
+		lblAdicionarAoCarrinho.setForeground(Color.RED);
+		lblAdicionarAoCarrinho.setBounds(310, 202, 129, 14);
+		contentPane.add(lblAdicionarAoCarrinho);
 	}  
 }

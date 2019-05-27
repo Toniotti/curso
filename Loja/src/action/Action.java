@@ -3,7 +3,6 @@ package action;
 import javax.swing.table.DefaultTableModel;
 import dados.Dados;
 import beans.Assassins;
-import beans.Carrinho;
 import interf.Interface;
 
 public class Action {
