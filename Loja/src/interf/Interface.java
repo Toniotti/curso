@@ -15,7 +15,9 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
+import action.Action;
 import bd.Write;
 import dados.Dados;
 
@@ -35,6 +37,7 @@ public class Interface extends JFrame {
 	
 	
 	public Interface() {
+		
 		
 		setFont(new Font("Dialog", Font.BOLD, 17));
 		setForeground(Color.RED);
@@ -204,6 +207,7 @@ public class Interface extends JFrame {
 		cmbEx.addItem("Inocentes");
 		
 		AdminC.add(cmbEx);
+		Action a = new Action();
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
@@ -215,7 +219,9 @@ public class Interface extends JFrame {
 				w.createFile("assassinos", true);
 				w.printIn(str);
 				w.lerAssassino("assassinos.txt");
-			}
+				
+				Table1.setModel(a.selecionar());
+				}
 		});
 		btnCadastrar.setForeground(Color.RED);
 		btnCadastrar.setBounds(93, 193, 89, 23);
@@ -295,6 +301,9 @@ public class Interface extends JFrame {
 			lbladmin.setVisible(false);
 			btnExcluir.setVisible(false);
 		}
-    
+		
+		
+		
+		Table1.setModel(a.selecionar());
 	}  
 }

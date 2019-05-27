@@ -1,7 +1,6 @@
 package action;
 
 import javax.swing.table.DefaultTableModel;
-
 import dados.Dados;
 import interf.Interface;
 
@@ -25,7 +24,6 @@ public class Action {
 	}
 
 public DefaultTableModel selecionar() {
-
 		DefaultTableModel modelo = new DefaultTableModel();
 		modelo.addColumn("Nome");
 		modelo.addColumn("Idade");
@@ -35,7 +33,7 @@ public DefaultTableModel selecionar() {
 		modelo.addColumn("local");
 
 		for (int indice = 0; indice < Dados.dadosAssassin.size(); indice++) {
-			modelo.addRow(new Object[] { Dados.dadosAssassin.get(indice).getNome(),
+			modelo.addRow(new Object[] {
 					Dados.dadosAssassin.get(indice).getNome(),
 					Dados.dadosAssassin.get(indice).getIdade(),
 					Dados.dadosAssassin.get(indice).getExceA(), 
@@ -49,4 +47,5 @@ public DefaultTableModel selecionar() {
 
 		return modelo;
 	}
+
 }

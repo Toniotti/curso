@@ -23,9 +23,6 @@ public class Principal {
 		w.lerUsuario("bd.txt");
 		w.lerAssassino("assassinos.txt");
 		
-		for (int i = 0; i < Dados.dadosAssassin.size(); i++) {
-			System.out.println(Dados.dadosAssassin.get(i).getNome());
-		}
 		Login l = new Login();
 		l.setLocationRelativeTo(null);
 		l.setVisible(true);
