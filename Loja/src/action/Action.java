@@ -72,5 +72,7 @@ public DefaultTableModel selecionar() {
 
 		return modelo;
 	}
-
+public void excluir(int row) {
+	Dados.dadosCarrinho.remove(row);
+}
 }

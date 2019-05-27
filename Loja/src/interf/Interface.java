@@ -100,6 +100,8 @@ public class Interface extends JFrame {
 		Table1 = new JTable();
 		Scroll1.setViewportView(Table1);
 		
+		//CADASTRAR NO CARRINHO
+		
 		JButton CadastrarA = new JButton("") 	;
 		CadastrarA.setBackground(Color.BLACK);
 		CadastrarA.setIcon(new ImageIcon("C:\\Users\\i3i\\Desktop\\Java\\Loja\\src\\interf\\newx.gif"));
@@ -241,7 +243,7 @@ public class Interface extends JFrame {
 		btnCadastrar.setForeground(Color.RED);
 		btnCadastrar.setBounds(93, 193, 89, 23);
 		AdminC.add(btnCadastrar);
-		CadastrarA.setBounds(310, 30, 116, 136);
+		CadastrarA.setBounds(310, 30, 129, 136);
 		contentPane.add(CadastrarA);
 		
 		//Ocultar caso usuario nao seja ADMIN
@@ -280,8 +282,8 @@ public class Interface extends JFrame {
 		;
 		
 		nomee = new JTextField();
+		nomee.setText(nome);
 		nomee.setBackground(Color.RED);
-		nomee.setEditable(false);
 		nomee.setBounds(10, 484, 158, 20);
 		contentPane.add(nomee);
 		nomee.setColumns(10);
