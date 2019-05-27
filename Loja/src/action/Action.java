@@ -1,5 +1,7 @@
 package action;
 
+import javax.swing.table.DefaultTableModel;
+
 import dados.Dados;
 import interf.Interface;
 
@@ -20,5 +22,31 @@ public class Action {
 				}
 			}
 		return valid;
+	}
+
+public DefaultTableModel selecionar() {
+
+		DefaultTableModel modelo = new DefaultTableModel();
+		modelo.addColumn("Nome");
+		modelo.addColumn("Idade");
+		modelo.addColumn("Restriçoes");
+		modelo.addColumn("Estilo");
+		modelo.addColumn("Custo");
+		modelo.addColumn("local");
+
+		for (int indice = 0; indice < Dados.dadosAssassin.size(); indice++) {
+			modelo.addRow(new Object[] { Dados.dadosAssassin.get(indice).getNome(),
+					Dados.dadosAssassin.get(indice).getNome(),
+					Dados.dadosAssassin.get(indice).getIdade(),
+					Dados.dadosAssassin.get(indice).getExceA(), 
+					Dados.dadosAssassin.get(indice).getEstiloA(),
+					Dados.dadosAssassin.get(indice).getCustoA(),
+					Dados.dadosAssassin.get(indice).getLocal()
+
+			});
+
+		}
+
+		return modelo;
 	}
 }

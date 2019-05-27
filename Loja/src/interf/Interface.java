@@ -24,7 +24,6 @@ public class Interface extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField nomee;
-	private JTable table;
 	private JTextField txtNome;
 	private JTextField txtIdade;
 	private JTextField txtLocal;
@@ -32,7 +31,7 @@ public class Interface extends JFrame {
 
 	public static String nome;
 	public static int nivel;
-	private JTable table_1;
+	private JTable Table1;
 	
 	
 	public Interface() {
@@ -41,14 +40,14 @@ public class Interface extends JFrame {
 		setForeground(Color.RED);
 		setTitle("PROGRAMINHA MATADOR VINDO DIRETO DA DEEPWEB");
 		
-		JButton btnNewButton_1 = new JButton("Cadastrar");
-		btnNewButton_1.setBackground(Color.RED);
-		btnNewButton_1.setBounds(622, 483, 82, 23);
+		JButton btnCadastro = new JButton("Cadastrar");
+		btnCadastro.setBackground(Color.RED);
+		btnCadastro.setBounds(622, 483, 82, 23);
 	
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBackground(Color.RED);
-		btnCancelar.setBounds(601, 359, 103, 23);
+		btnCancelar.setBounds(559, 359, 103, 23);
 		
 		
 		//Ocultar caso usuario nao seja ADMIN
@@ -58,7 +57,7 @@ public class Interface extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnRemover.setBounds(501, 359, 90, 23);
+		btnRemover.setBounds(459, 359, 90, 23);
 		
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.setBackground(Color.RED);
@@ -67,7 +66,7 @@ public class Interface extends JFrame {
 		
 		setBackground(Color.BLACK);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 730, 556);
+		setBounds(100, 100, 825, 556);
 		contentPane = new JPanel();
 		contentPane.setForeground(Color.RED);
 		contentPane.setBackground(Color.BLACK);
@@ -75,56 +74,36 @@ public class Interface extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.RED);
-		panel.setBounds(449, 11, 255, 337);
-	    contentPane.add(panel);
-		panel.setLayout(null);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(120, 11, 2, 2);
-		panel.add(scrollPane);
+		JPanel Panel1 = new JPanel();
+		Panel1.setBackground(Color.RED);
+		Panel1.setBounds(449, 11, 350, 337);
+	    contentPane.add(Panel1);
+		Panel1.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Assassinos Disponiveis");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setBounds(43, 0, 171, 25);
-		panel.add(lblNewLabel);
+		Panel1.add(lblNewLabel);
 		
-		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(10, 24, 235, 302);
-		panel.add(scrollPane_2);
+		JScrollPane Scroll1 = new JScrollPane();
+		Scroll1.setBounds(10, 24, 330, 302);
+		Panel1.add(Scroll1);
 		
-		table_1 = new JTable();
-		scrollPane_2.setViewportView(table_1);
+		Table1 = new JTable();
+		Scroll1.setViewportView(Table1);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(449, 11, 255, 337);
-		contentPane.add(panel_1);
-		panel_1.setLayout(null);
-		
-		JLabel lblB = new JLabel("B");
-		lblB.setBounds(124, 5, 6, 14);
-		panel_1.add(lblB);
-		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(20, 26, 225, 300);
-		panel_1.add(scrollPane_1);
-		
-		table = new JTable();
-		scrollPane_1.setViewportView(table);
-		
-		JButton btnNewButton = new JButton("") 	;
-		btnNewButton.setBackground(Color.BLACK);
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\i3i\\Desktop\\Java\\Loja\\src\\interf\\newx.gif"));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton CadastrarA = new JButton("") 	;
+		CadastrarA.setBackground(Color.BLACK);
+		CadastrarA.setIcon(new ImageIcon("C:\\Users\\i3i\\Desktop\\Java\\Loja\\src\\interf\\newx.gif"));
+		CadastrarA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				    
 				    btnExcluir.setEnabled(true);
-				    btnNewButton.setEnabled(true);
-				    btnNewButton_1.setEnabled(true);
-				panel.setVisible(true);
-			panel_1.setVisible(false);
+				    CadastrarA.setEnabled(true);
+				    btnCadastro.setEnabled(true);
+				Panel1.setVisible(true);
+		
 			}
 		});
 		JPanel AdminC = new JPanel();
@@ -241,17 +220,16 @@ public class Interface extends JFrame {
 		btnCadastrar.setForeground(Color.RED);
 		btnCadastrar.setBounds(93, 193, 89, 23);
 		AdminC.add(btnCadastrar);
-		btnNewButton.setBounds(310, 30, 116, 136);
-		contentPane.add(btnNewButton);
+		CadastrarA.setBounds(310, 30, 116, 136);
+		contentPane.add(CadastrarA);
 		
 		//Ocultar caso usuario nao seja ADMIN
 		
 		
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnCadastro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnCancelar.setEnabled(true);
-				panel.setVisible(true);
-				panel_1.setVisible(false);
+				Panel1.setVisible(true);
 				AdminC.setVisible(true);
 			}
 		});
@@ -264,8 +242,8 @@ public class Interface extends JFrame {
 				
 				AdminC.setVisible(false);
 			    btnExcluir.setEnabled(true);
-			    btnNewButton.setEnabled(true);
-			    btnNewButton_1.setEnabled(true);
+			    CadastrarA.setEnabled(true);
+			    btnCadastro.setEnabled(true);
 			}
 		});
 		
@@ -287,6 +265,9 @@ public class Interface extends JFrame {
 		contentPane.add(nomee);
 		nomee.setColumns(10);
 		
+		
+		
+		
 		//Ocultar caso usuario nao seja ADMIN
 		
 		JLabel lbladmin = new JLabel("*-Admin-*");
@@ -294,15 +275,26 @@ public class Interface extends JFrame {
 		lbladmin.setBackground(Color.BLACK);
 		lbladmin.setBounds(597, 465, 57, 14);
 		contentPane.add(lbladmin);
-		contentPane.add(btnNewButton_1);
+		contentPane.add(btnCadastro);
 		contentPane.add(btnRemover);
 		contentPane.add(btnCancelar);
 		contentPane.add(btnExcluir);
 		
-		JButton btnNewButton_2 = new JButton("PEDIDOS");
-		btnNewButton_2.setBackground(Color.RED);
-		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_2.setBounds(501, 393, 203, 23);
-		contentPane.add(btnNewButton_2);
-	}
+		JButton btnCarrinho = new JButton("PEDIDOS");
+		btnCarrinho.setBackground(Color.RED);
+		btnCarrinho.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnCarrinho.setBounds(672, 359, 127, 23);
+		contentPane.add(btnCarrinho);
+	
+		if (nivel == 1) {
+			btnCadastro.setVisible(true);
+			lbladmin.setVisible(true);
+			btnExcluir.setVisible(true);
+		}else {
+			btnCadastro.setVisible(false);
+			lbladmin.setVisible(false);
+			btnExcluir.setVisible(false);
+		}
+    
+	}  
 }
