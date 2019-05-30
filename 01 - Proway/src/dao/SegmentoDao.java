@@ -2,6 +2,8 @@ package dao;
 
 
 import java.sql.PreparedStatement;
+import javax.swing.DefaultComboBoxModel;
+import beans.Segmento;
 import conexao.Conexao;
 
 public class SegmentoDao {
@@ -39,4 +41,16 @@ public class SegmentoDao {
 		//retorno
 		return valida;
 	}
+	
+	//Selecionar segmento
+	public DefaultComboBoxModel<Segmento> Selecionar(){
+		
+		//instanciar o obj
+		DefaultComboBoxModel<Segmento> segmento = new DefaultComboBoxModel<Segmento>();
+		
+		//retorno
+		return segmento;
+	}
+
 }
+

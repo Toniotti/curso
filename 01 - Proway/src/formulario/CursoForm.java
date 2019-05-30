@@ -19,6 +19,7 @@ public class CursoForm extends JFrame {
 	private JTextField txtValor;
 
 	public CursoForm() {
+		setTitle("Cadastrar Cursos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 327, 274);
 		contentPane = new JPanel();

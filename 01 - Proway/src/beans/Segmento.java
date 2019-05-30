@@ -5,6 +5,11 @@ public class Segmento {
 	private int id;
 	private String segmento;
 	
+	//construtor
+	public Segmento(int id, String segmento) {
+		this.id = id;
+		this.segmento = segmento;
+	}
 	
 	public int getId() {
 		return id;
