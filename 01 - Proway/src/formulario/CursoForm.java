@@ -20,6 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class CursoForm extends JFrame {
 
@@ -109,7 +110,21 @@ public class CursoForm extends JFrame {
 			public void mouseReleased(MouseEvent e) {
 				//obter linha selecionada
 				int linha = Tabela.getSelectedRow();
+				
+				//obter o ArrayList
+				ArrayList<Curso> cursos = cursoDao.selecionar();
 
+				//atribuir valores aos campos
+				txtNome.setText(cursos.get(linha).getNomeCurso());
+				txtValor.setText(cursos.get(linha).getNomeCurso());
+
+				for(int i=0; i < cursos.size(); i++){
+					String opcaoCombo = cmbSegmento.getItemAt(i).toString();
+					if(opcaoCombo.equals(cursos.get(linha).getNomeSegmento())){
+						cmbSegmento.setSelectedIndex(i);
+						break;
+					}
+				}
 			}
 		});
 		barraRolagem.setViewportView(Tabela);

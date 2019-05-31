@@ -45,7 +45,7 @@ public class CursoDao {
 	}
 	
 	//obter cursos
-	private ArrayList<Curso> selecionar(){
+	public ArrayList<Curso> selecionar(){
 		//array list
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
 		
