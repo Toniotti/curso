@@ -25,4 +25,9 @@ public class Segmento {
 	}
 	
 	
+	//exibindo o nome do segmento automaticamente
+	public String toString() {
+		return segmento;
+	}
+	
 }

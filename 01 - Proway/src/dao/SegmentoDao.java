@@ -2,6 +2,9 @@ package dao;
 
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 import javax.swing.DefaultComboBoxModel;
 import beans.Segmento;
 import conexao.Conexao;
@@ -47,6 +50,31 @@ public class SegmentoDao {
 		
 		//instanciar o obj
 		DefaultComboBoxModel<Segmento> segmento = new DefaultComboBoxModel<Segmento>();
+		
+		//tentar obter os dados
+		try {
+			//sql
+			String sql = "SELECT * FROM segmentos";
+			
+			//conexao
+			Conexao c = new Conexao();
+			
+			//executando query e retornando dados
+			Statement stmt = c.con().createStatement();
+			ResultSet rs =  stmt.executeQuery(sql);
+			
+			//finalizar conexao
+			c.con().close();
+			
+			//percorrer o resultSet
+			while(rs.next()) {
+				Segmento sg = new Segmento(rs.getInt(1), rs.getString(2));
+				segmento.addElement(sg);
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Falha ao obter os segmentos: "+e.getMessage());
+		}
 		
 		//retorno
 		return segmento;

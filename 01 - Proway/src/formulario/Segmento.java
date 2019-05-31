@@ -27,7 +27,7 @@ public class Segmento extends JFrame {
 
 	public Segmento() {
 		setForeground(Color.WHITE);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 558, 205);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -62,6 +62,7 @@ public class Segmento extends JFrame {
 				txtSegmento.requestFocus();
 			}
 		});
+		getRootPane().setDefaultButton(btnCadastrar);
 		btnCadastrar.setBounds(206, 87, 112, 44);
 		contentPane.add(btnCadastrar);
 	}

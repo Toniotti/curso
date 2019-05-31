@@ -10,6 +10,13 @@ public class Curso {
 		this.valorCurso = valorCurso;
 		this.idSegmento = idSegmento;
 	}
+	//segundo construtor
+	public Curso(int idCurso, String nomeCurso, double valorCurso, String nomeSegmento) {
+		this.idCurso = idCurso;
+		this.nomeCurso = nomeCurso;
+		this.valorCurso = valorCurso;
+		this.nomeSegmento = nomeSegmento;
+	}
 	
 	public String getNomeSegmento() {
 		return nomeSegmento;
