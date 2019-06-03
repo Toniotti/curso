@@ -17,6 +17,13 @@ public class Curso {
 		this.valorCurso = valorCurso;
 		this.nomeSegmento = nomeSegmento;
 	}
+	//terciero construtor
+	public Curso(int idCurso, String nomeCurso, double valorCurso, int idSegmento){
+		this.idCurso = idCurso;
+		this.nomeCurso = nomeCurso;
+		this.valorCurso = valorCurso;
+		this.idSegmento = idSegmento;
+	}
 	
 	public String getNomeSegmento() {
 		return nomeSegmento;

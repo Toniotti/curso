@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -43,13 +44,67 @@ public class CursoDao {
 		
 		return valida;
 	}
+
+	//alterar curso
+	public boolean alterarCurso(Curso c){
+		//criar variavel de validação
+		boolean valida = false;
+		
+		try{
+			//string sql
+		String sql = "UPDATE cursos SET nomeCurso = ?, valorCurso = ?, idSegmento = ? WHERE idCurso = ?";
+
+		//conexao
+		Conexao connect = new Conexao();
+
+		PreparedStatement pstmt = connect.con().prepareStatement(sql);
+		pstmt.setString(1, c.getNomeCurso());
+		pstmt.setDouble(2, c.getValorCurso());
+		pstmt.setInt(3, c.getIdSegmento());
+		pstmt.setInt(4, c.getIdCurso());
+		pstmt.execute();
+
+		connect.con().close();
+
+		valida = true;
+
+	}catch(Exception e){
+		System.out.println("Erro ao alterar: "+e.getMessage());	
+	}
+		//retorna valor
+		return valida;
+	}
+
+	//deletar curso
+	public boolean deletarCurso(int id){
+				//criar varivel de validação
+				boolean valida = false;
+		
+		try {
+			//sql
+			String sql = "DELETE FROM cursos WHERE idCurso = ?";
+	
+			//conexao
+			Conexao c = new Conexao();
+			PreparedStatement pstmt = c.con().prepareStatement(sql);
+			pstmt.setInt(1, id);
+			pstmt.execute();
+
+			c.con().close();
+
+			valida = true;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+		//retorno
+		return valida;
+	}
 	
 	//obter cursos
 	public ArrayList<Curso> selecionar(){
 		//array list
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
-		
-		
 		
 		//tentativa
 		try {

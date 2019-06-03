@@ -4,8 +4,11 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
+
 import beans.Segmento;
 import conexao.Conexao;
 
@@ -78,6 +81,74 @@ public class SegmentoDao {
 		
 		//retorno
 		return segmento;
+	}
+
+	//arraylist da tabela
+	private ArrayList<Segmento> arrayTabela(){
+		//arraylist
+		ArrayList<Segmento> segmento = new ArrayList<Segmento>();
+
+		try {
+			//sql
+		String sql = "SELECT * FROM segmentos";
+
+		//conexao
+		Conexao c = new Conexao();
+
+		Statement stmt = c.con().createStatement();
+
+		ResultSet rs = stmt.executeQuery(sql);
+
+		while (rs.next()) {
+			Segmento s = new Segmento(rs.getInt(1), rs.getString(2));
+			segmento.add(s);
+		}
+		} catch (Exception e) {
+			System.out.println("Falha ao criar array: "+e.getMessage());
+		}
+
+
+		return segmento;
+	}
+
+	public DefaultTableModel mostrarTabela(){
+		DefaultTableModel dados = new DefaultTableModel();
+		dados.addColumn("Segmento");
+
+		ArrayList<Segmento> segmento = arrayTabela();
+		
+		for(int i=0; i < segmento.size(); i++) {
+			dados.addRow(new Object[] {
+				segmento.get(i).getSegmento(),
+			});
+		}
+
+		return dados;
+	}
+
+	//alterar tabela
+	public boolean alterarTabela(int linha){
+
+		//criar variavel de teste
+		boolean valida = false;
+
+		try {
+			//conexao
+			Conexao c = new Conexao();
+			
+			//pegar dados do array
+			ArrayList<Segmento> segmento = arrayTabela();
+			segmento.get(linha).getId();
+
+			//sql
+			String sql = "UPDATE segmentos SET nomeSegmento = ?";
+			PreparedStatement pstmt = 
+		} catch (Exception e) {
+			//TODO: handle exception
+		}
+
+		//retorno
+		return valida;
 	}
 
 }
