@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Engine</title>
+
+	<style>
+		canvas{
+			position: absolute;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			margin: auto;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+	var cv, ctx, height, width, frames = 0, fps = 0, vida = 3, qtd=0,
+	floor = {y: 300, h: 60, c: "#b8e85f",
+		desenha: function(){
+			ctx.fillStyle = this.c;
+			ctx.fillRect(0, this.y, width, this.h);
+		}
+	};
+
+	var cube = {
+		h: 50, w: 50, c: "rgb("+Math.floor(Math.random()*400)+", "+Math.floor(Math.random()*400)+", "+Math.floor(Math.random()*400)+")", x: 10, y: 500,
+		g: 0.2, v: 0, fp: 6, jps: 0, force: 12,
+
+		att: function(){
+			this.v += this.g;
+			this.y += this.v;
+			if(this.y > 250){this.y = 250; this.v =0};
+		},
+
+		pula: function(event){
+			if(this.jps < 2){
+				this.jps++;
+				this.v = -this.fp;
+			}else if(this.y == 250){
+				this.jps = 0;
+				this.jps++;
+				this.v = -this.fp;
+			}
+		},
+
+		right: function(){
+				if(this.x <= width-64){
+					this.x += this.force;
+				}
+		},
+
+		rj: function(){
+			if(this.x <= width-64){
+				this.x += this.force;
+				this.pula;
+			}
+		},
+
+		left: function(){
+			if(this.x >= 15){
+				this.x += -this.force;
+			}
+		},
+
+		draw: function(){
+			ctx.fillStyle = this.c;
+			ctx.fillRect(this.x, this.y, this.w, this.h);
+		}
+	};
+
+	var randomCube = {
+		max: width-60,
+		min: width*0.24,
+		y: 250,
+		x: 50,
+		random: Math.random() * (+this.max - +this.min) + +this.min,
+		c: "#d60431",
+
+		draw:  function(){
+			ctx.fillStyle = this.c;
+			ctx.fillRect(this.random, this.y, this.x, this.x);
+		}
+	};
+
+	function jump(event){
+		if(event.keyCode == 38){
+			cube.pula();
+		}
+		cube.vw = 0;
+	}
+
+	function walk(){
+		if(event.keyCode == 39){
+			cube.right();
+		}
+		if(event.keyCode == 37){
+			cube.left();
+		}
+	}
+
+	function randomCb(){
+		randomCube.random = Math.floor(Math.random() * (+(width-15) - +10) + +10);
+		while((randomCube.random < (screen.width*0.25)) || (randomCube.random > (((screen.width-80)-(screen.width*0.25)) +1))){
+			randomCube.random = Math.floor(Math.random() *(((screen.width-80)-(screen.width*0.25)) +1) + screen.width*0.25);
+		}
+	}
+
+	function main(){
+		height = window.innerHeight*0.95;
+		width = screen.width*0.9;
+
+		cv = document.createElement("canvas");
+		cv.width = width;
+		cv.height = height;
+		cv.style.border = "1px solid #000";
+
+		ctx = cv.getContext("2d");//pegar contexto
+
+		document.body.appendChild(cv);
+		randomCb();
+		run();
+	}
+		document.addEventListener("keydown", jump);
+		document.addEventListener("keydown", walk);
+
+	function run(){
+		att();
+		draw();
+
+		//mostrar fps
+		fps = frames/(performance.now()/1000);
+		ctx.font = "20px Georgia";
+		ctx.fillStyle = "#000";
+		ctx.fillText("FPS: "+parseInt(fps), 10, 30);
+
+		//mostra vida
+		ctx.fillText("Vida: "+vida, 10, 60);
+
+		ctx.fillText("y: "+Math.floor(cube.y)+" / "+Math.floor(randomCube.y), 10, 90);
+
+		ctx.fillText("vw: "+cube.vw, 10, 120);
+
+		window.requestAnimationFrame(run);
+	}
+
+
+	function att(){
+		if(vida <= 0){
+			vida = 3;
+			main();
+		}
+		frames++;
+		if(((cube.x+cube.h) >= randomCube.random) && ((cube.x) <= randomCube.random+randomCube.x) && (cube.y == randomCube.y)){
+			cube.x = 10;
+			vida--;
+		}
+		cube.att();
+		
+	}
+
+//atualiza cor do cubo
+	setInterval(function(){
+			cube.c = "rgb("+Math.floor(Math.random()*400)+", "+Math.floor(Math.random()*400)+", "+Math.floor(Math.random()*400)+")";
+		}, 1000);
+	
+
+	function draw(){
+		ctx.fillStyle = "#1db2e0";
+		ctx.fillRect(0, 0, width, height);
+
+		floor.desenha();
+		cube.draw();
+		randomCube.draw();
+	};
+
+
+	main();
+</script>
+
+</body>
+</html>
